@@ -1,0 +1,90 @@
+.load-windows-container{
+  width: 100px;
+  height: 100px;
+  position: relative;
+
+  .load-windows-item{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    
+
+    .dot{
+      width: 12%;
+      height: 12%;
+      margin: 0 auto;
+      border-radius: 50%;
+      background: palevioletred;
+    }
+  }
+
+  .item1 {
+    animation: load-windows linear 4s infinite;
+  }
+
+  .item2 {
+    animation: load-windows linear 4s 0.2s infinite;
+  }
+
+  .item3 {
+    animation: load-windows linear 4s 0.4s infinite;
+  }
+
+  .item4 {
+    animation: load-windows linear 4s 0.6s infinite;
+  }
+
+  .item5 {
+    animation: load-windows linear 4s 0.8s infinite;
+  }
+
+  .item6 {
+    animation: load-windows linear 4s 1s infinite;
+  }
+}
+
+@keyframes load-windows{
+  0% {
+    transform: rotate(180deg);
+    opacity: 0;
+  }
+  2% {
+    transform: rotate(240deg);
+    opacity: .7;
+  }
+  // 20% {
+  //   transform: rotate(360deg);
+  //   opacity: 1;
+  // }
+  28% {
+    transform: rotate(420deg);
+    opacity: 1;
+  }
+  30% {
+    transform: rotate(540deg);
+    opacity: 1;
+  }
+  32% {
+    transform: rotate(600deg);
+    opacity: 1;
+  }
+  // 55% {
+  //   transform: rotate(720deg);
+  //   opacity: 1;
+  // }
+  58% {
+    transform: rotate(780deg);
+    opacity: .7;
+  }
+  60% {
+    transform: rotate(900deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(900deg);
+    opacity: 0;
+  }
+}

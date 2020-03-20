@@ -1,0 +1,78 @@
+.running-round {
+  width: 100px;
+  height: 100px;
+  position: relative;
+
+  .wheel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: runIt 5s linear infinite;
+  }
+
+  .wheel.slow {
+    animation: runIt 10s linear infinite;
+  }
+
+  .gear {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+  }
+
+  .gear::before,
+  .gear::after {
+    position: absolute;
+    left: 49%;
+    content: '';
+    display: block;
+    width: 2%;
+    height: 5%;
+    background: red;
+    border-radius: 2px;
+    // transform: rotate(-20deg);
+  }
+
+  .gear::before {
+    top: 0;
+  }
+
+  .gear::after {
+    bottom: 0;
+  }
+
+  @for $i from 1 through 30 {
+    .gear:nth-child(#{$i}) {
+      transform: rotate(6 * $i + deg);
+    }
+  }
+
+  @keyframes runIt {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 2em;
+
+  }
+
+}

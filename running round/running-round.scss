@@ -9,11 +9,23 @@
     left: 0;
     width: 100%;
     height: 100%;
-    animation: runIt 5s linear infinite;
   }
 
-  .wheel.slow {
+  .wheel.run {
     animation: runIt 10s linear infinite;
+
+    .gear::before,
+    .gear::after {
+      transform: rotate(-20deg);
+    }
+  }
+
+  .wheel.run-fast {
+    animation: runIt 5s linear infinite;
+    .gear::before,
+    .gear::after {
+      transform: rotate(-40deg);
+    }
   }
 
   .gear {

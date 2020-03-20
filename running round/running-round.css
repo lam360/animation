@@ -10,13 +10,28 @@
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.running-round .wheel.run {
+  -webkit-animation: runIt 10s linear infinite;
+          animation: runIt 10s linear infinite;
+}
+
+.running-round .wheel.run .gear::before,
+.running-round .wheel.run .gear::after {
+  -webkit-transform: rotate(-20deg);
+          transform: rotate(-20deg);
+}
+
+.running-round .wheel.run-fast {
   -webkit-animation: runIt 5s linear infinite;
           animation: runIt 5s linear infinite;
 }
 
-.running-round .wheel.slow {
-  -webkit-animation: runIt 10s linear infinite;
-          animation: runIt 10s linear infinite;
+.running-round .wheel.run-fast .gear::before,
+.running-round .wheel.run-fast .gear::after {
+  -webkit-transform: rotate(-40deg);
+          transform: rotate(-40deg);
 }
 
 .running-round .gear {

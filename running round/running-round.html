@@ -4,8 +4,11 @@
     <link rel="stylesheet" href="./running-round.css">
   </head>
   <body>
+    <button onclick="run()">run</button>
+    <button onclick="run('fast')">run fast</button>
+    <button onclick="run('stop')">stop</button>
     <div class="running-round">
-      <div class="wheel slow">
+      <div  class="wheel">
         <div class="gear "></div>
         <div class="gear "></div>
         <div class="gear "></div>
@@ -44,5 +47,14 @@
         <span>123</span> 
       </div>
     </div>
+
+    <script>
+      function run(type){
+        var el = document.getElementsByClassName('wheel')[0];
+        if(type === 'fast') el.setAttribute('class','wheel run-fast');
+        else if(type === 'stop') el.setAttribute('class', 'wheel');
+        else el.setAttribute('class', 'wheel run');
+      }
+    </script>
   </body>
 </html>

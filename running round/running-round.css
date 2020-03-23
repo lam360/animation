@@ -1,7 +1,9 @@
 .running-round {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   position: relative;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .running-round .wheel {
@@ -12,26 +14,28 @@
   height: 100%;
 }
 
+.running-round .wheel.stop {
+  -webkit-animation: run-stop 3s linear;
+          animation: run-stop 3s linear;
+}
+
+.running-round .wheel.stop .gear::before,
+.running-round .wheel.stop .gear::after {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
 .running-round .wheel.run {
-  -webkit-animation: runIt 10s linear infinite;
-          animation: runIt 10s linear infinite;
+  -webkit-animation: turn-up 100s linear;
+          animation: turn-up 100s linear;
 }
 
 .running-round .wheel.run .gear::before,
 .running-round .wheel.run .gear::after {
   -webkit-transform: rotate(-20deg);
           transform: rotate(-20deg);
-}
-
-.running-round .wheel.run-fast {
-  -webkit-animation: runIt 5s linear infinite;
-          animation: runIt 5s linear infinite;
-}
-
-.running-round .wheel.run-fast .gear::before,
-.running-round .wheel.run-fast .gear::after {
-  -webkit-transform: rotate(-40deg);
-          transform: rotate(-40deg);
+  -webkit-transition-delay: 3s;
+          transition-delay: 3s;
 }
 
 .running-round .gear {
@@ -49,9 +53,13 @@
   content: '';
   display: block;
   width: 2%;
-  height: 5%;
+  height: 7%;
   background: red;
   border-radius: 2px;
+  -webkit-transition: -webkit-transform linear .5s;
+  transition: -webkit-transform linear .5s;
+  transition: transform linear .5s;
+  transition: transform linear .5s, -webkit-transform linear .5s;
 }
 
 .running-round .gear::before {
@@ -212,10 +220,40 @@
           transform: rotate(180deg);
 }
 
-@-webkit-keyframes runIt {
+@-webkit-keyframes turn-up {
   0% {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
+  }
+  4% {
+    -webkit-transform: rotate(225deg);
+            transform: rotate(225deg);
+  }
+  100% {
+    -webkit-transform: rotate(7425deg);
+            transform: rotate(7425deg);
+  }
+}
+
+@keyframes turn-up {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  4% {
+    -webkit-transform: rotate(225deg);
+            transform: rotate(225deg);
+  }
+  100% {
+    -webkit-transform: rotate(7425deg);
+            transform: rotate(7425deg);
+  }
+}
+
+@-webkit-keyframes run-stop {
+  0% {
+    -webkit-transform: rotate(210deg);
+            transform: rotate(210deg);
   }
   100% {
     -webkit-transform: rotate(360deg);
@@ -223,10 +261,10 @@
   }
 }
 
-@keyframes runIt {
+@keyframes run-stop {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    -webkit-transform: rotate(210deg);
+            transform: rotate(210deg);
   }
   100% {
     -webkit-transform: rotate(360deg);
